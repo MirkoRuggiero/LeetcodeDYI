@@ -14,7 +14,7 @@ public class ArgsAndExpectedImpl<ReturnType> implements ArgsAndExpected<ReturnTy
 
     @Override
     public Object[] arguments() {
-        return arguments;
+        return arguments.clone();
     }
 
     @Override

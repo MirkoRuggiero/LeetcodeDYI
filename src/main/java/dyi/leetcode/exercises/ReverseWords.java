@@ -31,7 +31,9 @@ public class ReverseWords extends AbstractLeetcodeExercise<String> {
 
     public static List<ArgsAndExpected> testCases() {
         return List.of(
-                new ArgsAndExpectedImpl(Utils.wrap("a good   example"), "example good a")
+                new ArgsAndExpectedImpl(Utils.wrap("a good   example"), "example good a"),
+                new ArgsAndExpectedImpl(Utils.wrap("hello world "), "world hello"),
+                new ArgsAndExpectedImpl(Utils.wrap("the pen      is on the table"), "table the on is pen the")
         );
     }
 }

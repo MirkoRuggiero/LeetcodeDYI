@@ -28,8 +28,8 @@ public abstract class AbstractLeetcodeExercise<ReturnType> implements LeetcodeEx
                 success = Objects.equals(result, expected);
             }
 
-            String resultString = result instanceof Object[] ? Arrays.toString((Object[]) result) : result.toString();
-            String expectedString = expected instanceof Object[] ? Arrays.toString((Object[]) expected) : expected.toString();
+            String resultString = result instanceof Object[] ? Arrays.deepToString((Object[]) result) : result.toString();
+            String expectedString = expected instanceof Object[] ? Arrays.deepToString((Object[]) expected) : expected.toString();
             System.out.printf(((success ? "Passed! " : "Failed! ") + String.format("Got %s as result", resultString)));
             if (!success) System.out.printf(", while %s was expected%n", expectedString);
             System.out.printf("%n%n");

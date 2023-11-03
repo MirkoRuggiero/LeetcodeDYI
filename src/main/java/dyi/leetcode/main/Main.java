@@ -13,7 +13,10 @@ public class Main {
             ProductExceptSelf.class, ProductExceptSelf.testCases(),
             TwoSum.class, TwoSum.testCases(),
             ReverseWords.class, ReverseWords.testCases(),
-            ReverseVowels.class, ReverseVowels.testCases()
+            ReverseVowels.class, ReverseVowels.testCases(),
+            IncreasingTriplet.class, IncreasingTriplet.testCases(),
+            StringCompression.class, StringCompression.testCases(),
+            MoveZeros.class, MoveZeros.testCases()
     );
 
     public static void main(String[] args) {

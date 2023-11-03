@@ -5,7 +5,7 @@ import java.util.List;
 public interface LeetcodeExercise<ReturnType> {
     ReturnType exerciseLogic(Object[] args) throws Exception;
 
-    static List<ArgsAndExpected> testCases() {
+    static <ReturnType> List<ArgsAndExpected<ReturnType>> testCases() {
         throw new UnsupportedOperationException();
     }
 }
