@@ -2,7 +2,9 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
+import dyi.leetcode.base.TimedReturn;
 import dyi.leetcode.interfaces.ArgsAndExpected;
+import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.*;
@@ -42,7 +44,7 @@ public class StringCompression extends AbstractLeetcodeExercise<Integer> {
     }
 
     @Override
-    public Integer exerciseLogic(Object[] args) throws Exception {
+    public Return<Integer> exerciseLogic(Object[] args) throws Exception {
         char[] chars = new char[args.length];
 
         for (int i = 0; i < args.length; i++) {
@@ -51,7 +53,10 @@ public class StringCompression extends AbstractLeetcodeExercise<Integer> {
         return compress(chars);
     }
 
-    private int compress(char[] chars) {
+    private Return<Integer> compress(char[] chars) {
+        TimedReturn<Integer> timedReturn = new TimedReturn<>();
+        timedReturn.start();
+
         Map<Character, Integer> occurrences = new HashMap<>();
         for (Character c : chars) {
             if (occurrences.containsKey(c)) {
@@ -88,7 +93,8 @@ public class StringCompression extends AbstractLeetcodeExercise<Integer> {
             chars = newArray;
         }
         System.out.println(Arrays.toString(chars));
-        return charsList.size();
+        timedReturn.setReturnValue(charsList.size());
+        return timedReturn.stop();
     }
 
     public static List<ArgsAndExpected> testCases() {

@@ -2,7 +2,9 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
+import dyi.leetcode.base.TimedReturn;
 import dyi.leetcode.interfaces.ArgsAndExpected;
+import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.List;
@@ -15,7 +17,7 @@ public class CanPlaceFlowers extends AbstractLeetcodeExercise<Boolean> {
     }
 
     @Override
-    public Boolean exerciseLogic(Object[] args) {
+    public Return<Boolean> exerciseLogic(Object[] args) {
         Integer[] flowerbed = (Integer[]) args[0];
         Integer n = (Integer) args[1];
         return canPlaceFlowers(n, flowerbed);
@@ -28,10 +30,13 @@ public class CanPlaceFlowers extends AbstractLeetcodeExercise<Boolean> {
                 new ArgsAndExpectedImpl<>(Utils.wrap(new Integer[]{1, 0, 0, 0, 1}, 2), false));
     }
 
-    private Boolean canPlaceFlowers(Integer n, Integer[] flowerbed) {
+    private Return<Boolean> canPlaceFlowers(Integer n, Integer[] flowerbed) {
+        TimedReturn<Boolean> timedReturn = new TimedReturn<>();
+        timedReturn.start();
         int planted = 0;
         if (planted == n) {
-            return true;
+            timedReturn.setReturnValue(true);
+            return timedReturn.stop();
         }
         for (int i = 0; i < flowerbed.length; i++) {
             if (flowerbed[i] == 0
@@ -40,10 +45,12 @@ public class CanPlaceFlowers extends AbstractLeetcodeExercise<Boolean> {
                 planted++;
                 flowerbed[i] = 1;
                 if (planted == n) {
-                    return true;
+                    timedReturn.setReturnValue(true);
+                    return timedReturn.stop();
                 }
             }
         }
-        return false;
+        timedReturn.setReturnValue(false);
+        return timedReturn.stop();
     }
 }

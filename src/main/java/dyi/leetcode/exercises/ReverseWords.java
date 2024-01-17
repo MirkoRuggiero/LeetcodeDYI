@@ -2,7 +2,9 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
+import dyi.leetcode.base.TimedReturn;
 import dyi.leetcode.interfaces.ArgsAndExpected;
+import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.Arrays;
@@ -15,18 +17,22 @@ public class ReverseWords extends AbstractLeetcodeExercise<String> {
     }
 
     @Override
-    public String exerciseLogic(Object[] args) {
+    public Return<String> exerciseLogic(Object[] args) {
         String s = (String) args[0];
         return reverseWords(s);
     }
 
-    private String reverseWords(String s) {
-        List<String> words = Arrays.stream(s.trim().split(" ")).filter(w -> !w.isBlank()).collect(Collectors.toList());
+    private Return<String> reverseWords(String s) {
+        TimedReturn<String> timedReturn = new TimedReturn<>();
+        timedReturn.start();
+
+        List<String> words = Arrays.stream(s.trim().split(" ")).filter(w -> !w.isBlank()).toList();
         StringBuilder sb = new StringBuilder(words.getLast());
         for (int i = words.size() - 2; i >= 0; i--) {
             sb.append(" ").append(words.get(i));
         }
-        return sb.toString();
+        timedReturn.setReturnValue(new String(sb.toString()));
+        return timedReturn.stop();
     }
 
     public static List<ArgsAndExpected> testCases() {

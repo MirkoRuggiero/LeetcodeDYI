@@ -2,7 +2,9 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
+import dyi.leetcode.base.TimedReturn;
 import dyi.leetcode.interfaces.ArgsAndExpected;
+import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.Arrays;
@@ -29,7 +31,7 @@ public class MoveZeros extends AbstractLeetcodeExercise<Integer[]> {
     }
 
     @Override
-    public Integer[] exerciseLogic(Object[] args) throws Exception {
+    public Return<Integer[]> exerciseLogic(Object[] args) throws Exception {
         int[] nums = new int[args.length];
 
         for (int i = 0; i < args.length; i++) {
@@ -38,7 +40,9 @@ public class MoveZeros extends AbstractLeetcodeExercise<Integer[]> {
         return moveZeroes(nums);
     }
 
-    private Integer[] moveZeroes(int[] nums) {
+    private Return<Integer[]> moveZeroes(int[] nums) {
+        TimedReturn<Integer[]> timedReturn = new TimedReturn<>();
+        timedReturn.start();
 
         int nonZeroIndex = 0;
 
@@ -51,8 +55,8 @@ public class MoveZeros extends AbstractLeetcodeExercise<Integer[]> {
                 nonZeroIndex++;
             }
         }
-
-        return Arrays.stream(nums).boxed().toList().toArray(new Integer[0]);
+        timedReturn.setReturnValue(Arrays.stream(nums).boxed().toList().toArray(new Integer[0]));
+        return timedReturn.stop();
     }
 
     public static List<ArgsAndExpected> testCases() {

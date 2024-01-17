@@ -2,18 +2,21 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
+import dyi.leetcode.base.TimedReturn;
 import dyi.leetcode.interfaces.ArgsAndExpected;
+import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.List;
 
 public class IncreasingTriplet extends AbstractLeetcodeExercise<Boolean> {
+
     public IncreasingTriplet(List<ArgsAndExpected<Boolean>> argsAndExpecteds) throws Exception {
         super(argsAndExpecteds);
     }
 
     @Override
-    public Boolean exerciseLogic(Object[] args) {
+    public Return<Boolean> exerciseLogic(Object[] args) {
         Integer[] nums = new Integer[args.length];
 
         for (int i = 0; i < args.length; i++) {
@@ -22,9 +25,13 @@ public class IncreasingTriplet extends AbstractLeetcodeExercise<Boolean> {
         return increasingTriplet(nums);
     }
 
-    private Boolean increasingTriplet(Integer[] nums) {
+    private Return<Boolean> increasingTriplet(Integer[] nums) {
+        TimedReturn<Boolean> timedReturn = new TimedReturn<>();
+        timedReturn.start();
+
         if (nums.length < 3) {
-            return false;
+            timedReturn.setReturnValue(false);
+            return timedReturn.stop();
         }
 
         int first = Integer.MAX_VALUE;
@@ -36,11 +43,13 @@ public class IncreasingTriplet extends AbstractLeetcodeExercise<Boolean> {
             } else if (num <= second) {
                 second = num;
             } else {
-                return true;
+                timedReturn.setReturnValue(true);
+                return timedReturn.stop();
             }
         }
 
-        return false;
+        timedReturn.setReturnValue(false);
+        return timedReturn.stop();
     }
 
     public static List<ArgsAndExpected> testCases() {

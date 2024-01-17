@@ -2,7 +2,9 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
+import dyi.leetcode.base.TimedReturn;
 import dyi.leetcode.interfaces.ArgsAndExpected;
+import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.HashMap;
@@ -17,25 +19,29 @@ public class TwoSum extends AbstractLeetcodeExercise<Integer[]> {
     }
 
     @Override
-    public Integer[] exerciseLogic(Object[] args) {
+    public Return<Integer[]> exerciseLogic(Object[] args) {
         Integer[] nums = (Integer[]) args[0];
         Integer target = (Integer) args[1];
         return twoSum(nums, target);
     }
 
-    private Integer[] twoSum(Integer[] nums, Integer target) {
+    private Return<Integer[]> twoSum(Integer[] nums, Integer target) {
+        TimedReturn<Integer[]> timedReturn = new TimedReturn<>();
+        timedReturn.start();
+
         Map<Integer, Integer> numMap = new HashMap<>();
         int n = nums.length;
 
         for (int i = 0; i < n; i++) {
             int complement = target - nums[i];
             if (numMap.containsKey(complement)) {
-                return new Integer[]{numMap.get(complement), i};
+                timedReturn.setReturnValue(new Integer[]{numMap.get(complement), i});
+                return timedReturn.stop();
             }
             numMap.put(nums[i], i);
         }
-
-        return new Integer[]{};
+        timedReturn.setReturnValue(new Integer[]{});
+        return timedReturn.stop();
     }
 
     public static List<ArgsAndExpected> testCases() {

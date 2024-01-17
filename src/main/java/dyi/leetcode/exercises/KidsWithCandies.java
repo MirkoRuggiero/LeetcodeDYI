@@ -2,7 +2,9 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
+import dyi.leetcode.base.TimedReturn;
 import dyi.leetcode.interfaces.ArgsAndExpected;
+import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ public class KidsWithCandies extends AbstractLeetcodeExercise<List<Boolean>> {
     }
 
     @Override
-    public List<Boolean> exerciseLogic(Object[] args) {
+    public Return<List<Boolean>> exerciseLogic(Object[] args) {
         Integer[] candies = (Integer[]) args[0];
         Integer extraCandies = (Integer) args[1];
         return kidsWithCandies(candies, extraCandies);
@@ -29,13 +31,18 @@ public class KidsWithCandies extends AbstractLeetcodeExercise<List<Boolean>> {
                         List.of(true, true, true, false, true)));
     }
 
-    private List<Boolean> kidsWithCandies(Integer[] candies, Integer extraCandies) {
+    private Return<List<Boolean>> kidsWithCandies(Integer[] candies, Integer extraCandies) {
+        TimedReturn<List<Boolean>> timedReturn = new TimedReturn<>();
+        timedReturn.start();
+
         List<Boolean> list = new ArrayList<>(candies.length);
         int max = findMax(candies);
         for (int i = 0; i < candies.length; i++) {
             list.add(calculateIfRicher(candies[i], extraCandies, max));
         }
-        return list;
+
+        timedReturn.setReturnValue(list);
+        return timedReturn.stop();
     }
 
     private int findMax(Integer[] candies) {

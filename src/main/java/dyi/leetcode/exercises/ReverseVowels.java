@@ -2,7 +2,9 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
+import dyi.leetcode.base.TimedReturn;
 import dyi.leetcode.interfaces.ArgsAndExpected;
+import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.LinkedList;
@@ -16,12 +18,15 @@ public class ReverseVowels extends AbstractLeetcodeExercise<String> {
     }
 
     @Override
-    public String exerciseLogic(Object[] args) {
+    public Return<String> exerciseLogic(Object[] args) {
         String s = (String) args[0];
         return reverseVowels(s);
     }
 
-    private String reverseVowels(String s) {
+    private Return<String> reverseVowels(String s) {
+        TimedReturn<String> timedReturn = new TimedReturn<>();
+        timedReturn.start();
+
         Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');
         Queue<Character> vowelsFound = new LinkedList<>();
         char[] charArray = s.toCharArray();
@@ -38,12 +43,13 @@ public class ReverseVowels extends AbstractLeetcodeExercise<String> {
                 charArray[i] = vowelsFound.poll();
             }
         }
-        return new String(charArray);
+        timedReturn.setReturnValue(new String(charArray));
+        return timedReturn.stop();
     }
 
     public static List<ArgsAndExpected> testCases() {
         return List.of(
-                new ArgsAndExpectedImpl(Utils.wrap("hello"), "olleh"),
+                new ArgsAndExpectedImpl(Utils.wrap("hello"), "holle"),
                 new ArgsAndExpectedImpl(Utils.wrap("leetcode"), "leotcede"),
                 new ArgsAndExpectedImpl(Utils.wrap("ai"), "ia")
         );

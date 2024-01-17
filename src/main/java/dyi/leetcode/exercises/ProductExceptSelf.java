@@ -2,7 +2,9 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
+import dyi.leetcode.base.TimedReturn;
 import dyi.leetcode.interfaces.ArgsAndExpected;
+import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public class ProductExceptSelf extends AbstractLeetcodeExercise<Integer[]> {
     }
 
     @Override
-    public Integer[] exerciseLogic(Object[] args) {
+    public Return<Integer[]> exerciseLogic(Object[] args) {
         Integer[] nums = new Integer[args.length];
 
         for (int i = 0; i < args.length; i++) {
@@ -23,10 +25,14 @@ public class ProductExceptSelf extends AbstractLeetcodeExercise<Integer[]> {
         return productExceptSelf(nums);
     }
 
-    private static Integer[] productExceptSelf(Integer[] nums) {
+    private Return<Integer[]> productExceptSelf(Integer[] nums) {
+        TimedReturn<Integer[]> timedReturn = new TimedReturn<>();
+        timedReturn.start();
+
         final int size = nums.length;
         if (size == 0) {
-            return new Integer[0];
+            timedReturn.setReturnValue(new Integer[0]);
+            return timedReturn.stop();
         }
         final Integer[] answer = new Integer[size];
         final Integer[] prefix = new Integer[size];
@@ -40,7 +46,8 @@ public class ProductExceptSelf extends AbstractLeetcodeExercise<Integer[]> {
             answer[i] = prefix[i] * suffixProduct;
             suffixProduct *= nums[i];
         }
-        return answer;
+        timedReturn.setReturnValue(answer);
+        return timedReturn.stop();
     }
 
     public static List<ArgsAndExpected> testCases() {
