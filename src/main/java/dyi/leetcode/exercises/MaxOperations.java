@@ -2,7 +2,7 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
-import dyi.leetcode.base.TimedReturn;
+import dyi.leetcode.base.TimedReturnImpl;
 import dyi.leetcode.interfaces.ArgsAndExpected;
 import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
@@ -19,7 +19,7 @@ public class MaxOperations extends AbstractLeetcodeExercise<Integer> {
     }
 
     public Return<Integer> maxOperations(Integer[] nums, int k) {
-        TimedReturn<Integer> timedReturn = new TimedReturn<>();
+        TimedReturnImpl<Integer> timedReturn = new TimedReturnImpl<>();
         timedReturn.start();
 
         int counter = 0;

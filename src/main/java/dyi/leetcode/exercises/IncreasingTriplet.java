@@ -2,7 +2,7 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
-import dyi.leetcode.base.TimedReturn;
+import dyi.leetcode.base.TimedReturnImpl;
 import dyi.leetcode.interfaces.ArgsAndExpected;
 import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
@@ -26,7 +26,7 @@ public class IncreasingTriplet extends AbstractLeetcodeExercise<Boolean> {
     }
 
     private Return<Boolean> increasingTriplet(Integer[] nums) {
-        TimedReturn<Boolean> timedReturn = new TimedReturn<>();
+        TimedReturnImpl<Boolean> timedReturn = new TimedReturnImpl<>();
         timedReturn.start();
 
         if (nums.length < 3) {

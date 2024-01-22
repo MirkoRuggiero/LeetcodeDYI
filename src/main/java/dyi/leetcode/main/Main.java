@@ -9,20 +9,25 @@ import java.util.Map;
 public class Main {
 
     private static final Map<Class<?>, List<ArgsAndExpected>> exercises = Map.ofEntries(
-            Map.entry(CanPlaceFlowers.class, CanPlaceFlowers.testCases()),
-            Map.entry(KidsWithCandies.class, KidsWithCandies.testCases()),
-            Map.entry(ProductExceptSelf.class, ProductExceptSelf.testCases()),
-            Map.entry(TwoSum.class, TwoSum.testCases()),
-            Map.entry(ReverseWords.class, ReverseWords.testCases()),
-            Map.entry(ReverseVowels.class, ReverseVowels.testCases()),
-            Map.entry(IncreasingTriplet.class, IncreasingTriplet.testCases()),
-            Map.entry(StringCompression.class, StringCompression.testCases()),
-            Map.entry(MoveZeros.class, MoveZeros.testCases()),
-            Map.entry(IsSubsequence.class, IsSubsequence.testCases()),
-            Map.entry(ContainerWithMostWater.class, ContainerWithMostWater.testCases()),
-            Map.entry(MaxOperations.class, MaxOperations.testCases()),
-            Map.entry(MaxOperationsFaster.class, MaxOperationsFaster.testCases())
+//            Map.entry(CanPlaceFlowers.class, CanPlaceFlowers.testCases()),
+//            Map.entry(KidsWithCandies.class, KidsWithCandies.testCases()),
+//            Map.entry(ProductExceptSelf.class, ProductExceptSelf.testCases()),
+//            Map.entry(TwoSum.class, TwoSum.testCases()),
+//            Map.entry(ReverseWords.class, ReverseWords.testCases()),
+//            Map.entry(ReverseVowels.class, ReverseVowels.testCases()),
+//            Map.entry(IncreasingTriplet.class, IncreasingTriplet.testCases()),
+//            Map.entry(StringCompression.class, StringCompression.testCases()),
+//            Map.entry(MoveZeros.class, MoveZeros.testCases()),
+//            Map.entry(IsSubsequence.class, IsSubsequence.testCases()),
+//            Map.entry(ContainerWithMostWater.class, ContainerWithMostWater.testCases()),
+//            Map.entry(MaxOperations.class, MaxOperations.testCases()),
+//            Map.entry(MaxOperationsFaster.class, MaxOperationsFaster.testCases())
+//            Map.entry(HighestAltitude.class, HighestAltitude.testCases()),
+//            Map.entry(PivotIndex.class, PivotIndex.testCases()),
+//            Map.entry(ArrayDifference.class, ArrayDifference.testCases()),
+            Map.entry(UniqueOccurences.class, UniqueOccurences.testCases())
     );
+
 
     public static void main(String[] args) {
         for (Class<?> exerciseClass : exercises.keySet()) {

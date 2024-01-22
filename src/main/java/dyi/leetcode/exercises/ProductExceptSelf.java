@@ -2,7 +2,7 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
-import dyi.leetcode.base.TimedReturn;
+import dyi.leetcode.base.TimedReturnImpl;
 import dyi.leetcode.interfaces.ArgsAndExpected;
 import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
@@ -26,7 +26,7 @@ public class ProductExceptSelf extends AbstractLeetcodeExercise<Integer[]> {
     }
 
     private Return<Integer[]> productExceptSelf(Integer[] nums) {
-        TimedReturn<Integer[]> timedReturn = new TimedReturn<>();
+        TimedReturnImpl<Integer[]> timedReturn = new TimedReturnImpl<>();
         timedReturn.start();
 
         final int size = nums.length;

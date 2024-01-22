@@ -2,7 +2,7 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
-import dyi.leetcode.base.TimedReturn;
+import dyi.leetcode.base.TimedReturnImpl;
 import dyi.leetcode.interfaces.ArgsAndExpected;
 import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
@@ -24,7 +24,7 @@ public class ReverseVowels extends AbstractLeetcodeExercise<String> {
     }
 
     private Return<String> reverseVowels(String s) {
-        TimedReturn<String> timedReturn = new TimedReturn<>();
+        TimedReturnImpl<String> timedReturn = new TimedReturnImpl<>();
         timedReturn.start();
 
         Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');

@@ -2,7 +2,7 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
-import dyi.leetcode.base.TimedReturn;
+import dyi.leetcode.base.TimedReturnImpl;
 import dyi.leetcode.interfaces.ArgsAndExpected;
 import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
@@ -31,7 +31,7 @@ public class CanPlaceFlowers extends AbstractLeetcodeExercise<Boolean> {
     }
 
     private Return<Boolean> canPlaceFlowers(Integer n, Integer[] flowerbed) {
-        TimedReturn<Boolean> timedReturn = new TimedReturn<>();
+        TimedReturnImpl<Boolean> timedReturn = new TimedReturnImpl<>();
         timedReturn.start();
         int planted = 0;
         if (planted == n) {

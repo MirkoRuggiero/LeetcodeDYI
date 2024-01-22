@@ -2,14 +2,13 @@ package dyi.leetcode.exercises;
 
 import dyi.leetcode.base.AbstractLeetcodeExercise;
 import dyi.leetcode.base.ArgsAndExpectedImpl;
-import dyi.leetcode.base.TimedReturn;
+import dyi.leetcode.base.TimedReturnImpl;
 import dyi.leetcode.interfaces.ArgsAndExpected;
 import dyi.leetcode.interfaces.Return;
 import dyi.leetcode.utils.Utils;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ReverseWords extends AbstractLeetcodeExercise<String> {
     public ReverseWords(List<ArgsAndExpected<String>> argsAndExpecteds) throws Exception {
@@ -23,7 +22,7 @@ public class ReverseWords extends AbstractLeetcodeExercise<String> {
     }
 
     private Return<String> reverseWords(String s) {
-        TimedReturn<String> timedReturn = new TimedReturn<>();
+        TimedReturnImpl<String> timedReturn = new TimedReturnImpl<>();
         timedReturn.start();
 
         List<String> words = Arrays.stream(s.trim().split(" ")).filter(w -> !w.isBlank()).toList();
