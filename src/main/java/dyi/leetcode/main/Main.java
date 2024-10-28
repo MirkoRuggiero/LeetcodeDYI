@@ -1,6 +1,7 @@
 package dyi.leetcode.main;
 
-import dyi.leetcode.exercises.*;
+import dyi.leetcode.exercises.RPNCalculator;
+import dyi.leetcode.exercises.TwinSumLinkedList;
 import dyi.leetcode.interfaces.ArgsAndExpected;
 
 import java.util.List;
@@ -25,7 +26,18 @@ public class Main {
 //            Map.entry(HighestAltitude.class, HighestAltitude.testCases()),
 //            Map.entry(PivotIndex.class, PivotIndex.testCases()),
 //            Map.entry(ArrayDifference.class, ArrayDifference.testCases()),
-            Map.entry(UniqueOccurences.class, UniqueOccurences.testCases())
+//            Map.entry(UniqueOccurences.class, UniqueOccurences.testCases()),
+//            Map.entry(CloseString.class, CloseString.testCases()),
+//            Map.entry(EqualPairs.class, EqualPairs.testCases()),
+//            Map.entry(Dota2Senate.class, Dota2Senate.testCases()),
+//            Map.entry(DeleteMiddle.class, DeleteMiddle.testCases()),
+//            Map.entry(OddEvenLinkedList.class, OddEvenLinkedList.testCases()),
+//            Map.entry(MaxFreeTime.class, MaxFreeTime.testCases()),
+//            Map.entry(MCD.class, MCD.testCases()),
+//            Map.entry(PermutationStep.class, PermutationStep.testCases()),
+//            Map.entry(HTMLParser.class, HTMLParser.testCases()),
+//            Map.entry(RPNCalculator.class, RPNCalculator.testCases()),
+            Map.entry(TwinSumLinkedList.class, TwinSumLinkedList.testCases())
     );
 
 

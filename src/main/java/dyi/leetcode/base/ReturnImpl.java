@@ -1,15 +1,22 @@
 package dyi.leetcode.base;
 
-import com.google.common.base.Stopwatch;
 import dyi.leetcode.interfaces.Return;
 
 public class ReturnImpl<ReturnType> implements Return<ReturnType> {
 
     private ReturnType value;
 
-    @Override
-    public void setReturnValue(ReturnType value) {
+    public ReturnImpl() {
+    }
+
+    public ReturnImpl(ReturnType value) {
         this.value = value;
+    }
+
+    @Override
+    public Return<ReturnType> setReturnValue(ReturnType value) {
+        this.value = value;
+        return this;
     }
 
     @Override

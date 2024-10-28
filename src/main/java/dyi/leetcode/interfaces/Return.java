@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public interface Return<ReturnType> {
 
-    void setReturnValue(ReturnType value);
+    Return<ReturnType> setReturnValue(ReturnType value);
 
     ReturnType getReturnValue();
 
@@ -22,11 +22,12 @@ public interface Return<ReturnType> {
         }
         String resultString = getReturnValue() instanceof Object[] ?
                 Arrays.deepToString((Object[]) getReturnValue()) :
-                getReturnValue().toString();
-        String expectedString = expected instanceof Object[] ? Arrays.deepToString((Object[]) expected) : expected.toString();
+                getReturnValue() != null ? getReturnValue().toString() : "";
+        String expectedString = expected instanceof Object[] ? Arrays.deepToString((Object[]) expected) :
+                expected != null ? expected.toString() : "";
         System.out.printf(((success ? "Passed! " : "Failed! ") + String.format("Got %s as result", resultString)));
-        if (!success) System.out.printf(", while %s was expected%n", expectedString);
-        System.out.printf("%n");
+        if (!success) System.out.printf(", while %s was expected", expectedString);
+        System.out.printf("%n%n");
     }
 
     interface TimedReturn<ReturnType> extends Return<ReturnType> {
